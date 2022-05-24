@@ -13,7 +13,8 @@ module.exports.home = async function(req, res){
         // });
 
         if(req.user.isAdmin == true){
-            return res.render('admin_home');
+            // console.log(admins);
+            return res.redirect('/admins/admin-view') 
         }
         return res.render('emp_home');
 

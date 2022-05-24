@@ -1,6 +1,5 @@
 const User = require('../models/user');
 const Review = require('../models/review');
-const { findById } = require('../models/user');
 
 
 module.exports.listReviewTo = async function(req, res){

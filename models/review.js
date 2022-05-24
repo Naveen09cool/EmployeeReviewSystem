@@ -6,14 +6,18 @@ const reviewSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
-    reviewTo:[{
+    reviewTo:{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
-    }],
-    reviewBy:[{
+    },
+    reviewBy:{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
-    }],
+    },
+    assignedBy:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    }
 },{
         timestamps: true
 });

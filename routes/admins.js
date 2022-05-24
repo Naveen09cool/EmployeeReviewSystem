@@ -5,12 +5,12 @@ const passport = require('passport');
 
 const adminsController = require('../controllers/admins_controller');
 
-router.post('/admin-view', adminsController.adminView);
-// router.post('/assign-review', adminsController.assignReview);
-router.post('/update-emp', adminsController.updateEmployee);//Make Admin
-router.get('/view-emp', adminsController.viewEmployee);
+router.get('/admin-view', adminsController.adminView);
+router.post('/update-emp/:id', adminsController.updateEmployee);//Make Admin
+router.get('/view-emp', adminsController.viewEmployees);
 router.get('/remove-emp/:id', adminsController.removeEmployee);
-// router.post('/add-emp', adminsController.addEmployee);
+// router.post('/assign-review', adminsController.assignReview);
+
 
 
 

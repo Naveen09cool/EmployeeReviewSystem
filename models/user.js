@@ -18,7 +18,14 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
-    assignedEmp:[]
+    assignedTo:[{
+        type:mongoose.Schema.Types.ObjectId,
+        // ref: User
+    }],
+    assignedBy:[{
+        type:mongoose.Schema.Types.ObjectId,
+        // ref: User
+    }]
 },{
         timestamps: true
 });
