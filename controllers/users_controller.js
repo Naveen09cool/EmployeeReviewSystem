@@ -34,6 +34,7 @@ module.exports.signUp = function(req, res){
     })
 }
 // render the sign in page
+
 module.exports.signIn = function(req, res){
 
     // if (req.isAuthenticated()){
