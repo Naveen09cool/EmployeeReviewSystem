@@ -14,6 +14,7 @@ module.exports.setReview = async function(req, res){
                     description: req.query.description
                 })
                 reviewDescription.save()
+                console.log("Review SAVED !");
                 return res.redirect('back')
             }else{
                 console.log("Not");

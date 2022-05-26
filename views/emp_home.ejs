@@ -29,13 +29,13 @@
                     <%= user.assignedto[i] %>
                 </td>
                 <td>
-                    <form action="/reviews/set-review/<%= user.assignedto[i]._id %>" method="get">
+                    <form action="/reviews/set-review/<%= user.assignedto[i]._id %>" method="post">
                         <textarea name="description" cols="30" rows="3" placeholder="Type your review here..." required></textarea>
                         <input type="submit" value="Submit">
                     </form>
                 </td>
                 <td>
-                    <%= reviews[i].description %>
+                    <%= users.assignedReview %>
                 </td>                
             </tr>
         <%}%>

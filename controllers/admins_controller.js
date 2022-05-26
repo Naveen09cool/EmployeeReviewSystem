@@ -47,10 +47,22 @@ module.exports.updateEmployee = async function(req, res){
 module.exports.adminView = async function(req, res){
     if(req.user.isAdmin == true){
         let users = await User.find({})
-        let reviews = await User.find({})
+        .populate( 'assignedReview assignedto' )
+        let allUser = []
+        for(let each_user of users){
+            let allReview= []
+            allReview.push(each_user)
+            let reviews = await Review.find({reviewBy:each_user._id})
+            for(let each_review of reviews){
+                allReview.push(each_review)
+            }
+            allUser.push(allReview)
+        }
+        let reviews = await Review.find({})
+        // console.log("fhuiwaehfuaegflhasgedfi"+allUser)
         return res.render('admin_home',{
-            users: users,
-            reviews:reviews
+            users: allUser,
+            user:users
         })
     }else{
         console.log('Access Denied! Only admin Access');

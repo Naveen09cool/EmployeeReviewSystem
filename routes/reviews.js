@@ -4,7 +4,7 @@ const passport = require('passport');
 
 const reviewsController = require('../controllers/reviews_controller');
 
-router.get('/set-review/:id', reviewsController.setReview);
+router.post('/set-review/:id', reviewsController.setReview);
 
 module.exports= router;
 

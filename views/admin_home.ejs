@@ -17,7 +17,6 @@
 
     <div id="list-users">
         <ul>
-            <%= console.log("sadasdasdwqaefds"+users.length) %>
             <% for(let i = 0; i<users.length; i++){ %>
                 <li>
                     <%= users[i].name %>
@@ -44,18 +43,18 @@
 
                     <select name="userX" id="pet-select">
                     <option value="">--Please choose an option--</option>
-                    <% for(let i = 0; i<users.length; i++){ %>
+                    <% for(let i = 0; i<user.length; i++){ %>
                             <li>
-                                <option value="<%= users[i].id %>"><%= users[i].name %></option>
+                                <option value="<%= user[i].id %>"><%= user[i].name %></option>
                             </li>
                     <%}%>
                     </select>
                     
                     <select name="userY" id="pet-select">
                     <option value="">--Please choose an option--</option>
-                    <% for(let i = 0; i<users.length; i++){ %>
+                    <% for(let i = 0; i<user.length; i++){ %>
                             <li>
-                                <option value="<%= users[i].id %>"><%= users[i].name %></option>
+                                <option value="<%= user[i].id %>"><%= user[i].name %></option>
                             </li>
                     <%}%>
                     </select>
@@ -77,16 +76,24 @@
             
             <tr>
                 <td>
-                    <%= users[i].name %>
+                    <%= users[i][0].name %>
                 </td>
                 <td>
-                    <%= users[i].isAdmin %>
+                    <%= users[i][0].isAdmin %>
                 </td>
                 <td>
-                    <%= users[i].assignedto %>
+                    <% for(let j = 0; j<users[i][0].assignedto.length; j++){ %>
+
+                    <%= console.log("=======> "+  users[i][0].assignedto[j].name ) %>
+                    <%= users[i][0].assignedto[j].name %>
+                    <%}%>
                 </td>
                 <td>
-                    <%= users[i].assignedReview %>
+                    
+                        <% for(let j = 1; j<users[i].length; j++){ %>
+                    <%= console.log("wqaefds=======> "+ users[i][j].description) %>
+                    <%= users[i][j].description %>
+                    <%}%>
                 </td>
                 
             </tr>
