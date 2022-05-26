@@ -4,7 +4,6 @@ const reviewSchema = new mongoose.Schema({
     description:{
         type: String,
         required: true,
-        unique: true
     },
     reviewTo:{
         type: mongoose.Schema.Types.ObjectId,
@@ -14,10 +13,10 @@ const reviewSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
-    assignedBy:{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
-    }
+    // assignedBy:{ //Admin that assigned the review
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: 'User'
+    // }
 },{
         timestamps: true
 });

@@ -16,7 +16,7 @@ module.exports.home = async function(req, res){
             // console.log(admins);
             return res.redirect('/admins/admin-view') 
         }
-        return res.render('emp_home');
+        return res.redirect('/employees/emp-view');
 
     }catch(err){
         console.log('ERROR', err);

@@ -11,6 +11,8 @@ router.use('/admins', require('./admins'))
 
 router.use('/employees', require('./employees'))
 
+router.use('/reviews', require('./reviews'))
+
 // for any further routes, access from here
 // router.use('/routerName', require('./routerfile));
 

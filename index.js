@@ -2,6 +2,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const app = express();
 const port = 8000;
+const bodyParser = require('body-parser')
 const db = require('./config/mongoose');
 const session = require('express-session');
 const passport = require('passport');
@@ -12,8 +13,10 @@ const MongoStore = require('connect-mongo');
 
  
 
+// app.use(express.urlencoded());
 
-app.use(express.urlencoded());
+app.use(bodyParser.urlencoded({ extended: false }))
+
 app.use(cookieParser());
 
 app.set('view engine', 'ejs');

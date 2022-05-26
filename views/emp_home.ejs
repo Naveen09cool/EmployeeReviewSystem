@@ -13,14 +13,32 @@
     <%= user._id %>
 
     <div>
-        <ul>
-            <%= console.log("asdadsd"+user) %>
-                <% for(let i = 0; i<=user.length; i++){ %>
-                    <li><%= user %></li>
-                <%}%>
-            
-        </ul>
-        
+        <h1>Pending reviews...</h1>       
     </div>
+    <div id="performance-table">
+        <table border="true">
+            <tr>
+                <th><small>Review for</small></th>
+                <th><small>Write review</small></th>
+                <th><small>Given Description</small></th>
+
+            </tr>
+        <% for(let i = 0; i<user.assignedto.length; i++){ %>
+            <tr>
+                <td>
+                    <%= user.assignedto[i] %>
+                </td>
+                <td>
+                    <form action="/reviews/set-review/<%= user.assignedto[i]._id %>" method="get">
+                        <textarea name="description" cols="30" rows="3" placeholder="Type your review here..." required></textarea>
+                        <input type="submit" value="Submit">
+                    </form>
+                </td>
+                <td>
+                    <%= reviews[i].description %>
+                </td>                
+            </tr>
+        <%}%>
+    </table>
 </body>
 </html>

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Review = require('./review');
 
 const userSchema = new mongoose.Schema({
     email:{
@@ -18,13 +19,13 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
-    assignedTo:[{
+    assignedto:[{ //Employee that is to be
         type:mongoose.Schema.Types.ObjectId,
-        // ref: User
+        ref: 'User'
     }],
-    assignedBy:[{
+    assignedfrom:[{
         type:mongoose.Schema.Types.ObjectId,
-        // ref: User
+        ref: 'Review'
     }]
 },{
         timestamps: true

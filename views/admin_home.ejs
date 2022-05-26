@@ -23,6 +23,9 @@
                     <%= users[i].name %>
                     <%if (users[i].isAdmin){ %>
                         <small>(admin)</small>
+                        <form action="/admins/update-emp/<%= users[i].id %>" method="post">
+                            <input type="submit" value="RemoveAdmin">
+                        </form>
                     <%}else{%>
                         <form action="/admins/update-emp/<%= users[i].id %>" method="post">
                             <input type="submit" value="MakeAdmin">
@@ -33,5 +36,63 @@
             <%}%>
         </ul>
     </div>
+
+    <div id="review">
+        <label for="pet-select">Employee to review:</label>
+            
+                <form action="/admins/assign-review" method="post">
+
+                    <select name="userX" id="pet-select">
+                    <option value="">--Please choose an option--</option>
+                    <% for(let i = 0; i<users.length; i++){ %>
+                            <li>
+                                <option value="<%= users[i].id %>"><%= users[i].name %></option>
+                            </li>
+                    <%}%>
+                    </select>
+                    
+                    <select name="userY" id="pet-select">
+                    <option value="">--Please choose an option--</option>
+                    <% for(let i = 0; i<users.length; i++){ %>
+                            <li>
+                                <option value="<%= users[i].id %>"><%= users[i].name %></option>
+                            </li>
+                    <%}%>
+                    </select>
+                        
+                    <input type="submit" value="AssignReview">
+                </form>
+    </div>
+
+    <div id="performance-table">
+        <table border="true">
+            <tr>
+                <th>name</th>
+                <th>isAdmin</th>
+                <th>assignedto</th>
+                <th>assignedfrom</th>
+
+            </tr>
+        <% for(let i = 0; i<users.length; i++){ %>
+            
+            <tr>
+                <td>
+                    <%= users[i].name %>
+                </td>
+                <td>
+                    <%= users[i].isAdmin %>
+                </td>
+                <td>
+                    <%= users[i].assignedto %>
+                </td>
+                <td>
+                    <%= users[i].assignedfrom %>
+                </td>
+                
+            </tr>
+        <%}%>
+    </table>
+    </div>
+</body>
 </body>
 </html>
