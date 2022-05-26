@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         ref: 'User'
     }],
-    assignedfrom:[{
+    assignedReview:[{
         type:mongoose.Schema.Types.ObjectId,
         ref: 'Review'
     }]

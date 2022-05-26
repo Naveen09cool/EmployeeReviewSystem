@@ -65,7 +65,7 @@ module.exports.assignReview = async function(req, res){
         let receiver = await User.findById(req.body.userY);
         await reviewer.assignedto.push(receiver)
         reviewer.save()
-        await receiver.assignedfrom.push(reviewer)
+        await receiver.assignedReview.push(reviewer)
         receiver.save()
         console.log(`Review Assigned to:${reviewer.name}`);
         return res.redirect('back')
