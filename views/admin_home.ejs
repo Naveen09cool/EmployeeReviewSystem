@@ -9,9 +9,9 @@
 <body>
     <div id="top-div">
         <h1>Admin</h1>
-        <h1><%= user.name %><%= user._id %></h1>
+        <h1><%= thisUser.name %><%= thisUser._id %></h1>
         <a href="/admins/view-emp">View Employee</a>
-        <a href="/admins/remove-emp/id">remove Employee</a>
+        <a href="/admins/remove-emp/<%= user.id %>">remove Employee</a>
     </div>
     
 
@@ -19,17 +19,17 @@
         <ul>
             <% for(let i = 0; i<users.length; i++){ %>
                 <li>
-                    <%= users[i].name %>
-                    <%if (users[i].isAdmin){ %>
+                    <%= user[i].name %>
+                    <%if (user[i].isAdmin){ %>
                         <small>(admin)</small>
-                        <form action="/admins/update-emp/<%= users[i].id %>" method="post">
+                        <form action="/admins/update-emp/<%= user[i].id %>" method="post">
                             <input type="submit" value="RemoveAdmin">
                         </form>
                     <%}else{%>
-                        <form action="/admins/update-emp/<%= users[i].id %>" method="post">
+                        <form action="/admins/update-emp/<%= user[i].id %>" method="post">
                             <input type="submit" value="MakeAdmin">
                         </form>
-                        <a href="/admins/remove-emp/<%= users[i].id %>">Delete Employee</a>
+                        <a href="/admins/remove-emp/<%= user[i].id %>">Delete Employee</a>
                     <%}%>
                 </li>
             <%}%>
@@ -66,10 +66,10 @@
     <div id="performance-table">
         <table border="true">
             <tr>
-                <th>name</th>
+                <th>name(KOUN)</th>
                 <th>isAdmin</th>
-                <th>assignedto</th>
-                <th>assignedReview</th>
+                <th>assignedto(KISKO)</th>
+                <th>assignedReview(KYA)</th>
 
             </tr>
         <% for(let i = 0; i<users.length; i++){ %>
@@ -83,15 +83,11 @@
                 </td>
                 <td>
                     <% for(let j = 0; j<users[i][0].assignedto.length; j++){ %>
-
-                    <%= console.log("=======> "+  users[i][0].assignedto[j].name ) %>
                     <%= users[i][0].assignedto[j].name %>
                     <%}%>
                 </td>
                 <td>
-                    
-                        <% for(let j = 1; j<users[i].length; j++){ %>
-                    <%= console.log("wqaefds=======> "+ users[i][j].description) %>
+                    <% for(let j = 1; j<users[i].length; j++){ %>
                     <%= users[i][j].description %>
                     <%}%>
                 </td>

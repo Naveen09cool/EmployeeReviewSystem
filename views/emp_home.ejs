@@ -18,24 +18,26 @@
     <div id="performance-table">
         <table border="true">
             <tr>
-                <th><small>Review for</small></th>
+                <th><small>kisko</small></th>
                 <th><small>Write review</small></th>
                 <th><small>Given Description</small></th>
 
             </tr>
         <% for(let i = 0; i<user.assignedto.length; i++){ %>
             <tr>
+                <%= console.log("===> "+ reviewDescription.length) %>
                 <td>
                     <%= user.assignedto[i] %>
                 </td>
                 <td>
-                    <form action="/reviews/set-review/<%= user.assignedto[i]._id %>" method="post">
+                    <form action="/reviews/set-review/<%= user.assignedto[i] %>" method="post">
                         <textarea name="description" cols="30" rows="3" placeholder="Type your review here..." required></textarea>
+                        <input type="hidden" value="<%= user.assignedto[i].id %>">
                         <input type="submit" value="Submit">
                     </form>
                 </td>
                 <td>
-                    <%= users.assignedReview %>
+                    <%= reviewDescription[i] %>
                 </td>                
             </tr>
         <%}%>
