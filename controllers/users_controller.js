@@ -1,8 +1,4 @@
 const User = require('../models/user');
-// const fs = require('fs');
-// const path = require('path');
-
-
 
 // get the sign up data
 module.exports.create = function(req, res){
@@ -33,12 +29,12 @@ module.exports.signUp = function(req, res){
         title: "Sign up"
     })
 }
-// render the sign in page
 
+// render the sign in page
 module.exports.signIn = function(req, res){
 
     // if (req.isAuthenticated()){
-    //     return res.redirect('/users/profile');
+    //     return res.redirect('/');
     // }
     return res.render('user_sign_in', {
         title: "Sign In"
@@ -48,13 +44,11 @@ module.exports.signIn = function(req, res){
 
 // sign in and create a session for the user
 module.exports.createSession = function(req, res){
-    // req.flash('success', 'Logged in Successfully');
     return res.redirect('/');
 }
 
 module.exports.destroySession = function(req, res){
     req.logout();
-    // req.flash('success', 'You have logged out!');
     return res.redirect('/');
 }
 

@@ -7,40 +7,41 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Employee</h1>
-    
-    <%= user.name %>
-    <%= user._id %>
-
-    <div>
-        <h1>Pending reviews...</h1>       
+    <div id="main-container">
+        <div id="welcome-container">
+            <h1>Welcome, <%= user.name %></h1>
+        </div>
+        <!--  -->
+        <div>
+            <h2>Pending reviews...</h2>       
+        </div>
+        <!--  -->
+        <div id="performance-table">
+            <table border="true">
+                <tr>
+                    <th><small>kisko</small></th>
+                    <th><small>Write review</small></th>
+                    <th><small>Given Description</small></th>
+                </tr>
+                <% for(let i = 0; i<user.assignedto.length; i++){ %>
+                    <tr>
+                        <td>
+                            <%= user.assignedto[i] %>
+                        </td>
+                        <td>
+                            <form action="/reviews/set-review/<%= user.assignedto[i] %>" method="post">
+                                <textarea name="description" cols="30" rows="3" placeholder="Type your review here..." required></textarea>
+                                <input type="hidden" value="<%= user.assignedto[i].id %>">
+                                <input type="submit" value="Submit">
+                            </form>
+                        </td>
+                        <td>
+                            <%= reviewDescription[i] %>
+                        </td>                
+                    </tr>
+                <%}%>
+            </table>
+        </div>
     </div>
-    <div id="performance-table">
-        <table border="true">
-            <tr>
-                <th><small>kisko</small></th>
-                <th><small>Write review</small></th>
-                <th><small>Given Description</small></th>
-
-            </tr>
-        <% for(let i = 0; i<user.assignedto.length; i++){ %>
-            <tr>
-                <%= console.log("===> "+ reviewDescription.length) %>
-                <td>
-                    <%= user.assignedto[i] %>
-                </td>
-                <td>
-                    <form action="/reviews/set-review/<%= user.assignedto[i] %>" method="post">
-                        <textarea name="description" cols="30" rows="3" placeholder="Type your review here..." required></textarea>
-                        <input type="hidden" value="<%= user.assignedto[i].id %>">
-                        <input type="submit" value="Submit">
-                    </form>
-                </td>
-                <td>
-                    <%= reviewDescription[i] %>
-                </td>                
-            </tr>
-        <%}%>
-    </table>
 </body>
 </html>

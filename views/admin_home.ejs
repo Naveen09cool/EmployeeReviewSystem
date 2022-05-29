@@ -7,95 +7,89 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="top-div">
-        <h1>Admin</h1>
-        <h1><%= thisUser.name %><%= thisUser._id %></h1>
-        <a href="/admins/view-emp">View Employee</a>
-        <a href="/admins/remove-emp/<%= user.id %>">remove Employee</a>
-    </div>
-    
-
-    <div id="list-users">
-        <ul>
-            <% for(let i = 0; i<users.length; i++){ %>
-                <li>
-                    <%= user[i].name %>
-                    <%if (user[i].isAdmin){ %>
-                        <small>(admin)</small>
-                        <form action="/admins/update-emp/<%= user[i].id %>" method="post">
-                            <input type="submit" value="RemoveAdmin">
-                        </form>
-                    <%}else{%>
-                        <form action="/admins/update-emp/<%= user[i].id %>" method="post">
-                            <input type="submit" value="MakeAdmin">
-                        </form>
-                        <a href="/admins/remove-emp/<%= user[i].id %>">Delete Employee</a>
-                    <%}%>
-                </li>
-            <%}%>
-        </ul>
-    </div>
-
-    <div id="review">
-        <label for="pet-select">Employee to review:</label>
-            
-                <form action="/admins/assign-review" method="post">
-
-                    <select name="userX" id="pet-select">
-                    <option value="">--Please choose an option--</option>
+    <div id="main-container">
+        <div id="welcome-div">
+            <h1>Welcome, <%= thisUser.name %></h1>
+            <a href="/admins/view-emp">View Employee</a>
+            <a href="/admins/remove-emp/<%= user.id %>">remove Employee</a>
+        </div>
+        <!--  -->
+        <div id="user-list-container">
+            <ul>
+                <% for(let i = 0; i<users.length; i++){ %>
+                    <li>
+                        <%= user[i].name %>
+                        <%if (user[i].isAdmin){ %>
+                            <small>(admin)</small>
+                            <form action="/admins/update-emp/<%= user[i].id %>" method="post">
+                                <input type="submit" value="RemoveAdmin">
+                            </form>
+                        <%}else{%>
+                            <form action="/admins/update-emp/<%= user[i].id %>" method="post">
+                                <input type="submit" value="MakeAdmin">
+                            </form>
+                            <a href="/admins/remove-emp/<%= user[i].id %>">Delete Employee</a>
+                        <%}%>
+                    </li>
+                <%}%>
+            </ul>
+        </div>
+        <!--  -->
+        <div id="review-container">
+            <label for="review-select">Employee to review:</label>
+            <form action="/admins/assign-review" method="post">
+                <select name="userX" id="review-select">
+                    <option value="">--Choose Employee to review--</option>
                     <% for(let i = 0; i<user.length; i++){ %>
-                            <li>
-                                <option value="<%= user[i].id %>"><%= user[i].name %></option>
-                            </li>
+                        <li>
+                            <option value="<%= user[i].id %>"><%= user[i].name %></option>
+                        </li>
                     <%}%>
-                    </select>
+                </select>
+                <select name="userY" id="review-select">
+                    <option value="">--Choose Employee to be reviewed--</option>
+                    <% for(let i = 0; i<user.length; i++){ %>
+                        <li>
+                            <option value="<%= user[i].id %>"><%= user[i].name %></option>
+                        </li>
+                    <%}%>
+                </select>
                     
-                    <select name="userY" id="pet-select">
-                    <option value="">--Please choose an option--</option>
-                    <% for(let i = 0; i<user.length; i++){ %>
-                            <li>
-                                <option value="<%= user[i].id %>"><%= user[i].name %></option>
-                            </li>
-                    <%}%>
-                    </select>
-                        
-                    <input type="submit" value="AssignReview">
-                </form>
+                <input type="submit" value="AssignReview">
+            </form>
+        </div>
+        <!--  -->
+        <div id="performance-table">
+            <table border="true">
+                <tr>
+                    <th>name(KOUN)</th>
+                    <th>isAdmin</th>
+                    <th>assignedto(KISKO)</th>
+                    <th>assignedReview(KYA)</th>
+                </tr>
+                <% for(let i = 0; i<users.length; i++){ %>
+                <tr>
+                    <td>
+                        <%= users[i][0].name %>
+                    </td>
+                    <td>
+                        <%= users[i][0].isAdmin %>
+                    </td>
+                    <td>
+                        <% for(let j = 0; j<users[i][0].assignedto.length; j++){ %>
+                            <%= users[i][0].assignedto[j].name %>
+                        <%}%>
+                    </td>
+                    <td>
+                        <% for(let j = 1; j<users[i].length; j++){ %>
+                            <%= users[i][j].description %>
+                        <%}%>
+                    </td>
+                </tr>
+                <%}%>
+            </table>
+        </div>
+        <!--  -->
     </div>
-
-    <div id="performance-table">
-        <table border="true">
-            <tr>
-                <th>name(KOUN)</th>
-                <th>isAdmin</th>
-                <th>assignedto(KISKO)</th>
-                <th>assignedReview(KYA)</th>
-
-            </tr>
-        <% for(let i = 0; i<users.length; i++){ %>
-            
-            <tr>
-                <td>
-                    <%= users[i][0].name %>
-                </td>
-                <td>
-                    <%= users[i][0].isAdmin %>
-                </td>
-                <td>
-                    <% for(let j = 0; j<users[i][0].assignedto.length; j++){ %>
-                    <%= users[i][0].assignedto[j].name %>
-                    <%}%>
-                </td>
-                <td>
-                    <% for(let j = 1; j<users[i].length; j++){ %>
-                    <%= users[i][j].description %>
-                    <%}%>
-                </td>
-                
-            </tr>
-        <%}%>
-    </table>
-    </div>
-</body>
 </body>
 </html>

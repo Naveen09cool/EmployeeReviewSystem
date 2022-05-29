@@ -24,32 +24,32 @@ module.exports.viewEmployees = async function(req, res){
 // delete user
 module.exports.removeEmployee = async function(req, res){
     if(req.user.isAdmin == true){
-    let users = await User.findById(req.params.id);
-    let allUser = await User.find({});
-    let reviews = await Review.find({});
-        for(let i = 0; i < reviews.length; i++){
-            if(reviews[i].reviewBy == req.params.id){
-                await reviews[i].remove()
-                console.log(`Deleted Review`);
+        let users = await User.findById(req.params.id);
+        let allUser = await User.find({});
+        let reviews = await Review.find({});
+            for(let i = 0; i < reviews.length; i++){
+                if(reviews[i].reviewBy == req.params.id){
+                    await reviews[i].remove()
+                    console.log(`Deleted Review`);
+                }
+                if(reviews[i].reviewTo == req.params.id){
+                    await reviews[i].remove()
+                    console.log(`Deleted Review`);
+                }
+            }                                                                              
+            for(let i = 0; i < allUser.length; i++){
+                let tempObject = allUser[i];
+                let tempId = users.id;
+                await User.updateOne({_id:tempObject},{$pullAll: {
+                    assignedReview: [users.id]} 
+                });
+                await User.updateOne({_id:tempObject},{$pullAll: {
+                    assignedto: [tempId]}
+                });
             }
-            if(reviews[i].reviewTo == req.params.id){
-                await reviews[i].remove()
-                console.log(`Deleted Review`);
-            }
-        }                                                                              
-        for(let i = 0; i < allUser.length; i++){
-            let tempObject = allUser[i];
-            let tempId = users.id;
-            await User.updateOne({_id:tempObject},{$pullAll: {
-                assignedReview: [users.id]} 
-            });
-            await User.updateOne({_id:tempObject},{$pullAll: {
-                assignedto: [tempId]}
-            });
-        }
-        await users.remove();
-        console.log(`Deleted User:${users.name}`);                                                          
-        return res.redirect('back') 
+            await users.remove();
+            console.log(`Deleted User:${users.name}`);                                                          
+            return res.redirect('back') 
     }else{
         console.log("Access denied! Only Admin can remove user");
         return res.redirect('back') 

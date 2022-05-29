@@ -1,13 +1,9 @@
 const User = require('../models/user');
 const Review = require('../models/review');
 
-
+// Creating review
 module.exports.setReview = async function(req, res){
-    // console.log(req.params);
-    // console.log(req.body);
-    // console.log(req.query);
     let receiver = await User.findById(req.params.id)
-    // console.log(`sdahdiuahadasfiaisfiafnajbfdao; ${receiver.assignedReview.length}`);
     for(let i = 0; i<receiver.assignedReview.length; i++){
         if(req.user){
             if(receiver.assignedReview[i] == req.user.id){
@@ -28,10 +24,5 @@ module.exports.setReview = async function(req, res){
             return res.redirect("/users/sign-in")
         }
     }
-
     return res.redirect('back')
-    // let review = await Review.findById(req.body.id)
-    // req.review.description = req.body.description;
-
-
 }
