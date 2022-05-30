@@ -10,13 +10,25 @@
     <div id="mainContainer">
         <div><h1>SignUP</h1></div>
         <div id="form-container">
-            <form action="/users/create" method="POST">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <input type="password" name="password" placeholder="Your Password" required>
-                <input type="password" name="confirm_password" placeholder="Confirm Password" required>
-                <input type="submit" value="Sign Up">
-            </form>
+            <ul>
+                <form action="/users/create" method="POST">
+                    <li>
+                        <input type="text" name="name" placeholder="Your Name" required>
+                    </li>
+                    <li>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                    </li>
+                    <li>
+                        <input type="password" name="password" placeholder="Your Password" required>
+                    </li>
+                    <li>
+                        <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+                    </li>
+                    <li>
+                        <input type="submit" value="Sign Up">
+                    </li>
+                </form>
+            </ul>
         </div>
     </div>
 </body>
