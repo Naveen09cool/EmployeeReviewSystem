@@ -4,39 +4,46 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/emp_home.css">
     <title>Document</title>
 </head>
 <body>
     <div id="main-container">
         <div id="welcome-container">
-            <h1>Welcome, <%= user.name %></h1>
+            <h1>Welcome, <%= user.name%></h1>
         </div>
         <!--  -->
-        <div>
+        <div id="instruction">
             <h2>Pending reviews...</h2>       
         </div>
         <!--  -->
         <div id="performance-table">
-            <table border="true">
+            <table>
                 <tr>
                     <th><small>kisko</small></th>
                     <th><small>Write review</small></th>
                     <th><small>Given Description</small></th>
                 </tr>
-                <% for(let i = 0; i<user.assignedto.length; i++){ %>
+                <% for(let i = 0; i<oneUser.assignedto.length; i++){ %>
                     <tr>
                         <td>
-                            <%= user.assignedto[i] %>
+                            <%= oneUser.assignedto[i].name%>
                         </td>
                         <td>
-                            <form action="/reviews/set-review/<%= user.assignedto[i] %>" method="post">
+                            <form id="desc-form" action="/reviews/set-review/<%= oneUser.assignedto[i].id %>" method="post">
                                 <textarea name="description" cols="30" rows="3" placeholder="Type your review here..." required></textarea>
-                                <input type="hidden" value="<%= user.assignedto[i].id %>">
-                                <input type="submit" value="Submit">
+                                <input type="hidden" value="<%= oneUser.assignedto[i].id %>">
+                                <input id="submit-button" type="submit" value="Submit">
                             </form>
                         </td>
                         <td>
-                            <%= reviewDescription[i] %>
+                            <% for(let k = 0; k<reviewDescription[i].length; k++){ %>
+                                <P>
+                                    <%= reviewDescription[i][k].description%>
+                                    <small id="on-date" > - <%= (reviewDescription[i][k].createdAt).toDateString().slice(0,15) %> </small>
+                                </P>
+
+                            <%}%>
                         </td>                
                     </tr>
                 <%}%>

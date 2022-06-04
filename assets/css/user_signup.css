@@ -1,11 +1,50 @@
-body{
-
+#main-container-signup{
+    background-color: aliceblue;
+    height: 60vh;
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 5%;
+    border: 2px solid #889ab3;
+    border-radius: 10px;
+    background: url(/img/signuplogo.svg);
+    background-attachment: scroll;
+    background-size: 40%;
+    /* background-size: auto; */
+    background-repeat:no-repeat;
+    background-position: right;
 }
 
-#mainContainer{
-
+#form-container-signup{
+    width: 100%;
+}
+#form-container-signup li{
+    list-style-type: none;
 }
 
-#form-container{
-    
+#input-button{
+    padding: 8px 16px 8px 16px;
+    color: #ffffff;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 5px;
+    margin-top: 15px;
+    /* margin-left: 33.3%; */
+    margin-left: 22.5%;
+
+    /* float: left; */
+    width: 25%;
+    background-color: #250060;
+    font-weight: bold;
+}
+input{
+    width: 50%;
+    padding: 16px;
+    float: left;
+    font-size: 16px;
+    border-radius: 15px;
+    margin-right: 4.5rem;
+    margin-left: 10%;
+    margin-top: 10px;
 }

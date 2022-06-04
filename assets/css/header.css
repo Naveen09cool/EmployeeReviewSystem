@@ -1,12 +1,16 @@
+body{
+    font-family: 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 #layout-header nav {
     display: flex;
     justify-content: space-between;
     padding: 0 10px;
-    background: #14a156f3;
+    background: #250060;
     color: white;
+    height: 7%;
   }
 #layout-header nav .mini-logo p {
-    margin: 5px;
+    margin: 10px;
     font-size: 1.4rem;
     font-weight: bold; 
 }

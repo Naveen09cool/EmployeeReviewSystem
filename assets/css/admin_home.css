@@ -2,13 +2,67 @@ body{
 
 }
 #main-container{
-
+    width: 90%;
+    background-color: aliceblue;
+    margin-left: 5%;
 }
 #welcome-div{
+    height: 10%;
+    background-color: white;
+    padding-left: 1%;
+    padding-top: 1px;
+}
 
+#form-container-addEmp{
+    height: 10%;
+    margin-bottom: 15px;
+    border: 2px solid #d8e8ff;
+    padding-bottom: 2%;
+    background-color: #d8e8ff8e;
+}
+#form-container-addEmp li{
+    list-style-type: none;
+}
+.input-add-emp{
+    width: 20%;
+    padding: 8px;
+    float: left;
+    font-size: 16px;
+    border-radius: 15px;
+    /* margin-right: 4.5rem; */
+    margin-left: 1%;
+    margin-top: 10px;
+}
+#input-add-emp-button{
+    padding: 8px;
+    border-radius: 5px;
+    margin-left: 1%;
+    margin-top: 10px;
 }
 #user-list-container{
-
+    /* background-color: beige; */
+    padding-left: 10%;
+    padding-bottom: 5%;
+    padding-top: 5%;
+}
+table{
+    margin-top: 3px;
+    /* outline: thin solid #250060; */
+    /* border-radius: 5px 5px 5px 5px;  */
+    width: 90%;
+    border-collapse: collapse;
+    font-size: large;
+}
+tr{
+    background: #d8e8ff8e;
+    text-align: center;
+    border: 1px solid #250060
+}
+td{
+    padding-bottom: 20px;
+}
+th{
+    padding-top: 5px;
 }
 #review-container{
 

@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/user_signup.css">       
     <title>Document</title>
 </head>
 <body>
-    <div id="mainContainer">
-        <div><h1>SignUP</h1></div>
-        <div id="form-container">
+    <div id="main-container-signup">
+        <div><h1>Sign Up</h1></div>
+        <div id="form-container-signup">
             <ul>
                 <form action="/users/create" method="POST">
                     <li>
@@ -25,7 +26,7 @@
                         <input type="password" name="confirm_password" placeholder="Confirm Password" required>
                     </li>
                     <li>
-                        <input type="submit" value="Sign Up">
+                        <input id="input-button" type="submit" value="Sign Up">
                     </li>
                 </form>
             </ul>

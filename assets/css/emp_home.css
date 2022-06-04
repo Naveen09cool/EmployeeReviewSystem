@@ -1,25 +1,63 @@
-body{
-    background-color: antiquewhite;
-}
 
 #main-container{
-
+    width: 90%;
+    background-color: aliceblue;
+    margin-left: 5%;
 }
 #welcome-container{
-
+    height: 10%;
+    background-color: white;
+    padding-left: 1%;
+    padding-top: 1px;
 }
 #performance-table{
-
+    padding-left: 10%;
+    padding-bottom: 5%;
 }
 table{
-
+    margin-top: 3px;
+    /* outline: thin solid #250060; */
+    /* border-radius: 5px 5px 5px 5px;  */
+    width: 90%;
+    border-collapse: collapse;
+    font-size: large;
 }
 tr{
-
+    background: #d8e8ff8e;
+    text-align: center;
+    border: 1px solid #250060
 }
 td{
-
+    padding-bottom: 20px;
+    /* background-color: aliceblue; */
 }
 th{
-    
+    padding-top: 5px;
+}
+textarea{
+    border-radius: 10px;
+    font-family: sans-serif;
+    font-size: medium;
+}
+#submit-button{
+    padding: 8px;
+    border-radius: 5px;
+    margin-left: 1%;
+    margin-top: 10px;
+}
+#submit-button:hover{
+    background-color: #7fb5ff;
+    color: #fff;
+}
+#desc-form{
+    /* background-color: aquamarine; */
+    padding-top: 2%;
+    margin-top: 3%;
+}
+#instruction{
+    padding-left: 10%;
+}
+#on-date{
+    color: grey;
+    font-weight: lighter;
 }

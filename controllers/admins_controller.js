@@ -107,7 +107,7 @@ module.exports.assignReview = async function(req, res){
     if(req.user.isAdmin == true){
         let reviewer = await User.findById(req.body.userX);
         let receiver = await User.findById(req.body.userY);
-        if(reviewer == receiver || receiver.isAdmin == true || reviewer.isAdmin == true){
+        if(reviewer.id == receiver.id || receiver.isAdmin == true || reviewer.isAdmin == true){
             console.log(`Try Again! Review can't be Assigned to same user or admin`);
             return res.redirect('back')
         }
@@ -121,4 +121,27 @@ module.exports.assignReview = async function(req, res){
         console.log('Access Denied! Only admin Access');
         return res.redirect('back')
     }  
+}
+
+// Add employee
+
+module.exports.addEmployee = function(req, res){
+    if(req.body.password != req.body.confirm_password){
+        return res.redirect('back');
+    }
+
+    User.findOne({email: req.body.email}, function(err, user){
+        
+        if(err){console.log('Error in finding user');return}
+
+        if(!user){
+            User.create(req.body, function(err, user){
+                if(err){console.log('Error in creating user');return}
+                return res.redirect('back');
+            })
+        }else{
+            console.log('Created!!')
+            return res.redirect('back');
+        }
+    })
 }
