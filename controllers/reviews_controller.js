@@ -3,7 +3,8 @@ const Review = require('../models/review');
 
 // Creating review
 module.exports.setReview = async function(req, res){
-    let receiver = await User.findById(req.params.id)
+    try {
+        let receiver = await User.findById(req.params.id)
     for(let i = 0; i<receiver.assignedReview.length; i++){
         if(req.user){
             if(receiver.assignedReview[i] == req.user.id){
@@ -25,4 +26,9 @@ module.exports.setReview = async function(req, res){
         }
     }
     return res.redirect('back')
+    } catch (error) {
+        console.log('ERROR', error);
+        return;
+    }
+    
 }

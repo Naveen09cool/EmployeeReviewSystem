@@ -9,7 +9,7 @@
 </head>
 <body>
     <div id="main-container-signin">
-        <div><h1>Sign In</h1></div>
+        <div id="sign-in-instruction"><h1>Existing User ! Sign In</h1></div>
         <div id="form-container-signin">
             <ul>
                 <form action="/users/create-session" method="POST">
@@ -21,6 +21,9 @@
                     </li>
                     <li>
                         <input id="input-button" type="submit" value="Sign In">
+                    </li>
+                    <li>
+                        <h2 id="signup-link">Not a user? <a href="/users/sign-up">SignUp</a></h2>
                     </li>
                 </form>
             </ul>

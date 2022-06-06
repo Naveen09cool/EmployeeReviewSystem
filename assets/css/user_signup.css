@@ -1,6 +1,9 @@
+body{
+    background: aliceblue;
+}
 #main-container-signup{
     background-color: aliceblue;
-    height: 60vh;
+    height: 62vh;
     width: 70%;
     margin-left: 15%;
     margin-top: 5%;
@@ -47,4 +50,17 @@ input{
     margin-right: 4.5rem;
     margin-left: 10%;
     margin-top: 10px;
+}
+#signin-link{
+    width: 50%;
+    padding: 16px;
+    float: left;
+    /* font-size: 16px; */
+    border-radius: 15px;
+    margin-right: 4.5rem;
+    margin-left: 0%;
+    margin-top: 10px;
+}
+#sign-up-instruction{
+    margin-left: 5%;
 }

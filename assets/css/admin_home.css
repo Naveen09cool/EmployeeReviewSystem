@@ -43,10 +43,10 @@ body{
     /* background-color: beige; */
     padding-left: 10%;
     padding-bottom: 5%;
-    padding-top: 5%;
+    padding-top: 1%;
 }
 table{
-    margin-top: 3px;
+    margin-top: 3%;
     /* outline: thin solid #250060; */
     /* border-radius: 5px 5px 5px 5px;  */
     width: 90%;
@@ -65,8 +65,46 @@ th{
     padding-top: 5px;
 }
 #review-container{
-
+    /* background-color: #ffeddb; */
+    background-color: #d8e8ff8e;
+    height: 15%;
+    margin-bottom: 15px;
+    border: 2px solid #d8e8ff;
+    padding-bottom: 4%;    
+    padding-left: 10%;
+    color: #235cab;
+    text-align: center;
 }
 #performance-table{
-    
+    /* background-color: cadetblue; */
+    padding-left: 10%;
+    padding-bottom: 5%;
+    padding-top: 1%;
+    /* background-color: #ffffff8e; */
+    /* text-align: center; */
+    /* color: #235cab; */
+}
+#performance-table table{
+    background-color: #ffffff;
+    opacity: 1;
+}
+#performance-table table th{
+    color: #235cab;
+}
+.select-user{
+    width: 22%;
+    padding: 8px;
+    /* float: left; */
+    font-size: 16px;
+    border-radius: 5px;
+    /* margin-right: 4.5rem; */
+    /* margin-left: 3%; */
+    margin-right: 2%;
+    margin-top: 8px;
+}
+#input-assign-button{
+    padding: 8px;
+    border-radius: 5px;
+    /* margin-left: 3%; */
+    margin-top: 10px;
 }
