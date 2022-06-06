@@ -1,26 +1,38 @@
 const User = require('../models/user');
 
 // get the sign up data
-module.exports.create = function(req, res){
+module.exports.create = async function(req, res){
     try {
+        let totalUser = await User.count({});
         if(req.body.password != req.body.confirm_password){
             return res.redirect('back');
         }
-    
-        User.findOne({email: req.body.email}, function(err, user){
-            
+        User.findOne({email: req.body.email}, async function(err, user){
             if(err){console.log('Error in finding user');return}
-    
             if(!user){
-                User.create(req.body, function(err, user){
-                    if(err){
-                        console.log('Error in creating user');
-                        return
-                    }
+                if(totalUser==0){
+                    let newUser = await User.create({
+                        email:req.body.email,
+                        name:req.body.name,
+                        password:req.body.password,
+                        isAdmin:true
+                    })
+                    await newUser.save()
+                    console.log("Admin User Created!");
                     return res.redirect('/users/sign-in');
-                })
+                }else{
+                    let newUser = await User.create({
+                        email:req.body.email,
+                        name:req.body.name,
+                        password:req.body.password,
+                        isAdmin:false
+                    })
+                    await newUser.save()
+                    console.log("User Created!");
+                    return res.redirect('/users/sign-in');
+                }
             }else{
-                console.log('Created!!')
+                console.log('User Already exists')
                 return res.redirect('back');
             }
         })
