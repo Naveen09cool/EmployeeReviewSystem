@@ -35,7 +35,7 @@ app.use(session({
     },
     store:MongoStore.create(
         {
-            mongoUrl: 'mongodb://localhost/db',
+            mongoUrl: process.env.MONGO_CONNECT,
             autoRemove: 'disabled'
         },
         function(err){
