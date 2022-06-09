@@ -49,17 +49,19 @@
                     </td>
                     <td>
                         <%if (user[i].isAdmin== false){ %>
-                            <a href="/admins/remove-emp/<%= user[i].id %>">Delete Employee</a>
+                            <form action="/admins/remove-emp/<%= user[i].id %>" method="get">
+                                <input class="admin-btn" type="submit" value="Delete">
+                            </form>
                         <%}%>
                     </td>
                     <td>
                         <%if (user[i].isAdmin){ %>
                             <form action="/admins/update-emp/<%= user[i].id %>" method="post">
-                                <input type="submit" value="RemoveAdmin">
+                                <input class="admin-btn" type="submit" value="RemoveAdmin">
                             </form>
                         <%}else{%>
                             <form action="/admins/update-emp/<%= user[i].id %>" method="post">
-                                <input type="submit" value="MakeAdmin">
+                                <input class="admin-btn" type="submit" value="MakeAdmin">
                             </form>
                         <%}%>
                     </td>
@@ -91,7 +93,7 @@
                     <%}%>
                 </select>
                     
-                <input id="input-assign-button" type="submit" value="AssignReview">
+                <input id="input-assign-button" type="submit" value="Assign Review">
             </form>
         </div>
         <!--  -->
@@ -99,9 +101,9 @@
             <h1>Review Table</h1>
             <table border="true">
                 <tr>
-                    <th>name(KOUN)</th>
-                    <th>assignedto(KISKO)</th>
-                    <th>assignedReview(KYA)</th>
+                    <th>Assigned By</th>
+                    <th>Assigned To</th>
+                    <th>Assigned Review(KYA)</th>
                 </tr>
                 <% for(let i = 0; i<users.length; i++){ %>
                     <%if(users[i][0].isAdmin == false){%>

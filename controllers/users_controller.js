@@ -3,14 +3,14 @@ const User = require('../models/user');
 // get the sign up data
 module.exports.create = async function(req, res){
     try {
-        let totalUser = await User.count({});
+        let totalAdmin = await User.count({isAdmin:true});
         if(req.body.password != req.body.confirm_password){
             return res.redirect('back');
         }
         User.findOne({email: req.body.email}, async function(err, user){
             if(err){console.log('Error in finding user');return}
             if(!user){
-                if(totalUser==0){
+                if(totalAdmin==0){
                     let newUser = await User.create({
                         email:req.body.email,
                         name:req.body.name,

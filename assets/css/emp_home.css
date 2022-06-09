@@ -32,7 +32,10 @@ td{
     /* background-color: aliceblue; */
 }
 th{
-    padding-top: 5px;
+    /* padding-top: 5px; */
+    color: #ffffff;
+    padding: 5px;
+    background-color: #00007c;
 }
 textarea{
     border-radius: 10px;
